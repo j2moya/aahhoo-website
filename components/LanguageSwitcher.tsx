@@ -1,50 +1,31 @@
 import React from 'react';
-import { Language } from '../types';
+import type { Language } from '../types';
 
 interface LanguageSwitcherProps {
-  currentLanguage: Language;
-  onLanguageChange: (language: Language) => void;
+  language: Language;
+  setLanguage: (language: Language) => void;
 }
 
-export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ currentLanguage, onLanguageChange }) => {
-  const styles: { [key: string]: React.CSSProperties } = {
-    container: {
-      display: 'flex',
-      gap: '0.5rem',
-      alignItems: 'center',
-    },
-    button: {
-      background: 'none',
-      border: '1px solid #ccc',
-      borderRadius: '4px',
-      padding: '0.4rem 0.8rem',
-      cursor: 'pointer',
-      fontWeight: 500,
-      transition: 'background-color 0.3s, color 0.3s',
-    },
-    activeButton: {
-      backgroundColor: '#176B87',
-      color: 'white',
-      borderColor: '#176B87',
-    }
-  };
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ language, setLanguage }) => {
+  const switchStyle = (lang: Language): React.CSSProperties => ({
+    padding: '0.5rem 0.75rem',
+    cursor: 'pointer',
+    color: language === lang ? '#fff' : '#007A8D',
+    backgroundColor: language === lang ? '#007A8D' : 'transparent',
+    border: 'none',
+    fontWeight: 'bold',
+  });
 
   return (
-    <div style={styles.container}>
-      <button
-        style={currentLanguage === 'en' ? {...styles.button, ...styles.activeButton} : styles.button}
-        onClick={() => onLanguageChange('en')}
-        aria-pressed={currentLanguage === 'en'}
-      >
-        EN
-      </button>
-      <button
-        style={currentLanguage === 'es' ? {...styles.button, ...styles.activeButton} : styles.button}
-        onClick={() => onLanguageChange('es')}
-        aria-pressed={currentLanguage === 'es'}
-      >
+    <div style={{ border: '1px solid #007A8D', borderRadius: '5px', overflow: 'hidden', display: 'flex' }}>
+      <button onClick={() => setLanguage('es')} style={{...switchStyle('es'), borderRight: '1px solid #007A8D'}}>
         ES
+      </button>
+      <button onClick={() => setLanguage('en')} style={switchStyle('en')}>
+        EN
       </button>
     </div>
   );
 };
+
+export default LanguageSwitcher;

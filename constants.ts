@@ -1,4 +1,4 @@
-import { Content, MexicoLocation } from './types';
+import type { Content, MexicoLocation } from './types';
 
 export const COMPANY_INFO = {
     website: 'www.aahhoo.com',
@@ -22,28 +22,6 @@ export const COMPANY_INFO = {
     }
 };
 
-export const MEXICO_LOCATIONS: MexicoLocation[] = [
-    { city: 'Ciudad de México', address: 'Magenta Tower, Avenida Paseo de la Reforma 284', provider: 'Regus' },
-    { city: 'Ciudad de México', address: 'New York Life Tower, Avenida Paseo de la Reforma 342', provider: 'Regus' },
-    { city: 'Ciudad de México', address: 'Avenida Patriotismo 229, Ciudad de México', provider: 'Regus' },
-    { city: 'Ciudad de México', address: 'Torre Summa, Hamburgo 213, Ciudad de México', provider: 'Regus' },
-    { city: 'Ciudad de México', address: 'Lomas de Chapultepec, Torre Esmeralda 2, Blvd. Manuel Ávila Camacho 36', provider: 'Regus' },
-    { city: 'Guadalajara', address: 'Av. de las Américas 1586, Country Club, Guadalajara', provider: 'Regus' },
-    { city: 'Guadalajara', address: 'Av. Prolongación Américas 1600, Guadalajara', provider: 'Cvent' },
-    { city: 'Guadalajara', address: 'Periférico Sur 7999-A, Parque Intermex, Guadalajara', provider: 'Cvent' },
-    { city: 'Ciudad de México', address: 'Av. Insurgentes Norte 86, Colonia Tabacalera, Cuauhtémoc, Ciudad de México', provider: 'Regus' },
-    { city: 'Ciudad de México', address: 'Paseo de la Reforma 284, piso 17, Ciudad de México', provider: 'Regus' },
-    { city: 'Ciudad de México', address: 'Paseo de la Reforma 342, piso 26, Col. Juárez, Ciudad de México', provider: 'Regus' },
-    { city: 'Ciudad de México', address: 'Hamburgo 213, Juárez, Cuauhtémoc, Ciudad de México', provider: 'Regus' },
-    { city: 'Ciudad de México', address: 'Av. Pdte. Masaryk 29-Piso 1, Polanco V Sección, Miguel Hidalgo, Ciudad de México', provider: 'Colivingcdmx' },
-    { city: 'Ciudad de México', address: 'Av. Pdte. Masaryk 111-Piso 1, Polanco III Sección, Miguel Hidalgo, Ciudad de México', provider: 'Colivingcdmx' },
-    { city: 'Ciudad de México', address: 'Av. Insurgentes Sur 1898-Pisos 12 y 14, Florida, Álvaro Obregón, Ciudad de México', provider: 'AllBiz' },
-    { city: 'Ciudad de México', address: 'Leibnitz 112, Anzures, Miguel Hidalgo, Ciudad de México', provider: 'AllBiz' },
-    { city: 'Guadalajara', address: 'Av. de las Américas #1586, Country Club, Guadalajara, Jalisco', provider: 'Regus' },
-    { city: 'Monterrey', address: 'Miguel Hidalgo y Costilla 2404, Obispado, Monterrey, Nuevo León', provider: 'Regus' },
-    { city: 'Ciudad Victoria', address: 'Av. Tamaulipas 1152, Quinta Laura, Ciudad Victoria, Tamaulipas', provider: 'Regus' },
-];
-
 const MORE_LINKS_DATA = [
     { icon: 'ArticleIcon', url: 'https://aahhoo.com/a/', en: { title: 'Articles', description: 'In-depth articles and resources.' }, es: { title: 'Artículos', description: 'Artículos y recursos detallados.' }},
     { icon: 'ReelIcon', url: 'https://aahhoo.com/r/', en: { title: 'Reels', description: 'Watch our latest short videos.' }, es: { title: 'Reels', description: 'Mira nuestros últimos videos cortos.' }},
@@ -59,6 +37,28 @@ const MORE_LINKS_DATA = [
     { icon: 'TikTokIcon', url: 'https://www.tiktok.com/@drjmoya', en: { title: 'TikTok', description: 'Watch our latest trends and tips.' }, es: { title: 'TikTok', description: 'Mira nuestras últimas tendencias y consejos.' }},
 ];
 
+export const MEXICO_LOCATIONS: MexicoLocation[] = [
+    { address: 'Ciudad de México — Magenta Tower, Avenida Paseo de la Reforma 284', provider: 'Regus' },
+    { address: 'Ciudad de México — New York Life Tower, Avenida Paseo de la Reforma 342', provider: 'Regus' },
+    { address: 'Ciudad de México — Avenida Patriotismo 229, Ciudad de México', provider: 'Regus' },
+    { address: 'Ciudad de México — Torre Summa, Hamburgo 213, Ciudad de México', provider: 'Regus' },
+    { address: 'Ciudad de México — Lomas de Chapultepec, Torre Esmeralda 2, Blvd. Manuel Ávila Camacho 36', provider: 'Regus' },
+    { address: 'Guadalajara — Av. de las Américas 1586, Country Club, Guadalajara', provider: 'Regus' },
+    { address: 'Guadalajara — Av. Prolongación Américas 1600, Guadalajara', provider: 'Cvent' },
+    { address: 'Guadalajara — Periférico Sur 7999-A, Parque Intermex, Guadalajara', provider: 'Cvent' },
+    { address: 'Ciudad de México — Av. Insurgentes Norte 86, Colonia Tabacalera, Cuauhtémoc, Ciudad de México', provider: 'Regus' },
+    { address: 'Ciudad de México — Paseo de la Reforma 284, piso 17, Ciudad de México', provider: 'Regus' },
+    { address: 'Ciudad de México — Paseo de la Reforma 342, piso 26, Col. Juárez, Ciudad de México', provider: 'Regus' },
+    { address: 'Ciudad de México — Hamburgo 213, Juárez, Cuauhtémoc, Ciudad de México', provider: 'Regus' },
+    { address: 'Ciudad de México — Av. Pdte. Masaryk 29-Piso 1, Polanco V Sección, Miguel Hidalgo, Ciudad de México', provider: 'Colivingcdmx' },
+    { address: 'Ciudad de México — Av. Pdte. Masaryk 111-Piso 1, Polanco III Sección, Miguel Hidalgo, Ciudad de México', provider: 'Colivingcdmx' },
+    { address: 'Ciudad de México — Av. Insurgentes Sur 1898-Pisos 12 y 14, Florida, Álvaro Obregón, Ciudad de México', provider: 'AllBiz' },
+    { address: 'Ciudad de México — Leibnitz 112, Anzures, Miguel Hidalgo, Ciudad de México', provider: 'AllBiz' },
+    { address: 'Guadalajara — Av. de las Américas #1586, Country Club, Guadalajara, Jalisco', provider: 'Regus' },
+    { address: 'Monterrey — Miguel Hidalgo y Costilla 2404, Obispado, Monterrey, Nuevo León', provider: 'Regus' },
+    { address: 'Ciudad Victoria — Av. Tamaulipas 1152, Quinta Laura, Ciudad Victoria, Tamaulipas', provider: 'Regus' },
+];
+
 export const content: Content = {
   en: {
     tagline: 'An EXCEPTIONAL quality of life, within your reach.',
@@ -67,13 +67,13 @@ export const content: Content = {
     aboutText: 'We hold planned events in various cities and countries. Meetings take place at Marriott hotels or similar venues and in Regus offices, with over 3,000 locations available in more than 150 countries, all central, well-located, and secure. These events are scheduled promptly, with availability within the current month.',
     servicesTitle: 'Our Services & Products',
     services: [
-      { title: 'Quality of Life Conferences', description: 'Dedicated to improving quality of life, finding new employment, and managing chronic inflammatory health conditions like Psoriasis, Vitiligo, Allergies, Arthritis, and over 300 others.' },
-      { title: 'Genome Sequencing Analysis', description: 'We obtain a saliva sample and provide over 100 genetic reports for a deep understanding of your health.' },
-      { title: 'Protocol for Vitiligo', description: 'We offer a complete protocol with specialized creams for year-round skin care.' },
-      { title: 'Medical Equipment Sales and Rentals', description: 'We offer equipment for sale and rent to manage many diseases from the comfort of your home.' },
-      { title: 'Training and Professional Network', description: 'We train family members and doctors, adding them to our global support network as representatives and associates.' },
-      { title: 'Application Development', description: 'We develop and manage custom applications for our associates, enhancing their reach and practice.' },
-      { title: 'Concierge Doctor Program', description: 'Personalized assistance and high-precision functional medicine for an unparalleled health experience.' },
+      { title: 'Quality of Life Conferences', description: 'Dedicated to improving quality of life, finding new employment, and managing chronic inflammatory health conditions like Psoriasis, Vitiligo, Allergies, Arthritis, and over 300 others.', callToAction: 'Learn More', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Genome Sequencing Analysis', description: 'We obtain a saliva sample and provide over 100 genetic reports for a deep understanding of your health.', callToAction: 'Learn More', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Protocol for Vitiligo', description: 'We offer a complete protocol with specialized creams for year-round skin care.', callToAction: 'Learn More', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Medical Equipment Sales and Rentals', description: 'We offer equipment for sale and rent to manage many diseases from the comfort of your home.', callToAction: 'Learn More', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Training and Professional Network', description: 'We train family members and doctors, adding them to our global support network as representatives and associates.', callToAction: 'Learn More', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Application Development', description: 'We develop and manage custom applications for our associates, enhancing their reach and practice.', callToAction: 'Learn More', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Concierge Doctor Program', description: 'Personalized assistance and high-precision functional medicine for an unparalleled health experience.', callToAction: 'Learn More', whatsappNumber: COMPANY_INFO.whatsapp },
     ],
     locationsTitle: 'Our Global Headquarters',
     locationsSubtitle: 'We conduct our events at premier locations worldwide, ensuring a professional, safe, and accessible experience. Here are some examples of our available venues.',
@@ -86,8 +86,6 @@ export const content: Content = {
       { city: 'Paris', addresses: ["14 Avenue de l'Opéra", 'Tour First, 1 Place des Saisons'] },
       { city: 'Panama City', addresses: ['Sortis Business Tower, Calle 56 y 57', 'Torre de Las Americas, Punta Pacifica'] },
     ],
-    locationsMexicoLink: 'See others',
-    locationsMexicoModalTitle: 'Other Locations in Mexico',
     associatesTitle: 'Meet Our Global Associates',
     associatesSubtitle: 'Our strength lies in our international network of dedicated professionals. We are proud to introduce some of our associates. Join us and become part of this growing team.',
     associates: [
@@ -124,10 +122,10 @@ export const content: Content = {
     contactTitle: 'Contact Us',
     investmentPrice: 'For investment price: Please call local numbers or contact us via WhatsApp.',
     bookingLink: 'Book an Appointment',
-    callToAction: 'Learn More',
-    loginText: 'Member Login',
+    loginText: 'login',
     registerText: 'Register',
     footerRights: 'All rights reserved',
+    locationsMexicoModalTitle: 'More Locations in Mexico',
   },
   es: {
     tagline: 'Una calidad de vida EXCEPCIONAL, a tu alcance.',
@@ -136,13 +134,13 @@ export const content: Content = {
     aboutText: 'Hacemos eventos planificados en otras ciudades y países. Las reuniones se realizan en hoteles Marriott o similares y en oficinas Regus, con más de 3000 oficinas disponibles en más de 150 países, céntricas, bien localizadas y seguras. Estos eventos se planifican de inmediato, con disponibilidad en el mismo mes en curso.',
     servicesTitle: 'Nuestros Servicios y Productos',
     services: [
-      { title: 'Conferencias de Calidad de Vida', description: 'Dedicadas a mejorar la calidad de vida, nuevos empleos y controlar condiciones de salud con inflamación crónica como Psoriasis, Vitiligo, Alergias, Artritis y más de 300 otras.' },
-      { title: 'Análisis de Secuenciación del Genoma', description: 'Obtenemos una muestra de saliva y ofrecemos más de 100 reportes genéticos para un profundo conocimiento de su salud.' },
-      { title: 'Protocolo para el Vitiligo', description: 'Ofrecemos un protocolo completo con cremas especializadas para el cuidado de la piel durante todo el año.' },
-      { title: 'Venta y Renta de Equipos Médicos', description: 'Ofrecemos equipos para la venta y renta para controlar muchas enfermedades desde la comodidad de su hogar.' },
-      { title: 'Entrenamiento y Red Profesional', description: 'Entrenamos a familiares y médicos, añadiéndolos a nuestra red de asistencia global como representantes y asociados.' },
-      { title: 'Desarrollo de Aplicaciones', description: 'Desarrollamos y administramos aplicaciones personalizadas para nuestros asociados, mejorando su alcance y práctica.' },
-      { title: 'Programa de Concierge Doctor', description: 'Asistencia personalizada y medicina funcional de elevada precisión para una experiencia de salud inigualable.' },
+      { title: 'Conferencias de Calidad de Vida', description: 'Dedicadas a mejorar la calidad de vida, nuevos empleos y controlar condiciones de salud con inflamación crónica como Psoriasis, Vitiligo, Alergias, Artritis y más de 300 otras.', callToAction: 'Saber Más', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Análisis de Secuenciación del Genoma', description: 'Obtenemos una muestra de saliva y ofrecemos más de 100 reportes genéticos para un profundo conocimiento de su salud.', callToAction: 'Saber Más', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Protocolo para el Vitiligo', description: 'Ofrecemos un protocolo completo con cremas especializadas para el cuidado de la piel durante todo el año.', callToAction: 'Saber Más', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Venta y Renta de Equipos Médicos', description: 'Ofrecemos equipos para la venta y renta para controlar muchas enfermedades desde la comodidad de su hogar.', callToAction: 'Saber Más', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Entrenamiento y Red Profesional', description: 'Entrenamos a familiares y médicos, añadiéndolos a nuestra red de asistencia global como representantes y asociados.', callToAction: 'Saber Más', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Desarrollo de Aplicaciones', description: 'Desarrollamos y administramos aplicaciones personalizadas para nuestros asociados, mejorando su alcance y práctica.', callToAction: 'Saber Más', whatsappNumber: COMPANY_INFO.whatsapp },
+      { title: 'Programa de Concierge Doctor', description: 'Asistencia personalizada y medicina funcional de elevada precisión para una experiencia de salud inigualable.', callToAction: 'Saber Más', whatsappNumber: COMPANY_INFO.whatsapp },
     ],
     locationsTitle: 'Nuestras Sedes Globales',
     locationsSubtitle: 'Realizamos nuestros eventos en ubicaciones de primer nivel en todo el mundo, garantizando una experiencia profesional, segura y accesible. Aquí hay algunos ejemplos de nuestras sedes disponibles.',
@@ -155,8 +153,6 @@ export const content: Content = {
         { city: 'Paris', addresses: ["14 Avenue de l'Opéra", 'Tour First, 1 Place des Saisons'] },
         { city: 'Panama City', addresses: ['Sortis Business Tower, Calle 56 y 57', 'Torre de Las Americas, Punta Pacifica'] },
     ],
-    locationsMexicoLink: 'Ver otros',
-    locationsMexicoModalTitle: 'Otras Sedes en México',
     associatesTitle: 'Conozca a Nuestros Asociados Globales',
     associatesSubtitle: 'Nuestra fortaleza reside en nuestra red internacional de profesionales dedicados. Nos enorgullece presentar a algunos de nuestros asociados. Únase a nosotros y forme parte de este equipo en crecimiento.',
     associates: [
@@ -193,9 +189,9 @@ export const content: Content = {
     contactTitle: 'Contáctanos',
     investmentPrice: 'Precio por inversión: Llamar a teléfonos locales o WhatsApp.',
     bookingLink: 'Agendar una Cita',
-    callToAction: 'Saber Más',
-    loginText: 'Miembros',
-    registerText: 'Registrarse',
+    loginText: 'login',
+    registerText: 'Registro',
     footerRights: 'Todos los derechos reservados',
+    locationsMexicoModalTitle: 'Más Sedes en México',
   },
 };

@@ -1,96 +1,86 @@
 import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title: string;
   children: React.ReactNode;
 }
 
-export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+  const modalRoot = document.getElementById('modal-root');
+
   useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         onClose();
       }
     };
+
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleEsc);
+      document.addEventListener('keydown', handleKeyDown);
     }
+
     return () => {
-      document.body.style.overflow = 'unset';
-      window.removeEventListener('keydown', handleEsc);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) {
+  if (!isOpen || !modalRoot) {
     return null;
   }
 
-  const styles: { [key: string]: React.CSSProperties } = {
-    backdrop: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      backgroundColor: 'rgba(0, 0, 0, 0.6)',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex: 2000,
-    },
-    modalContent: {
-      backgroundColor: 'white',
-      borderRadius: '8px',
-      boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
-      width: '90%',
-      maxWidth: '800px',
-      maxHeight: '85vh',
-      display: 'flex',
-      flexDirection: 'column',
-      overflow: 'hidden',
-    },
-    header: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '1rem 1.5rem',
-      borderBottom: '1px solid #dee2e6',
-      fontFamily: "'Poppins', sans-serif",
-    },
-    title: {
-      margin: 0,
-      fontSize: '1.5rem',
-      color: '#0D3D56',
-    },
-    closeButton: {
-      background: 'none',
-      border: 'none',
-      fontSize: '2rem',
-      fontWeight: 300,
-      cursor: 'pointer',
-      color: '#6c757d',
-      lineHeight: 1,
-    },
-    body: {
-      padding: '1.5rem',
-      overflowY: 'auto',
-    },
-  };
-
-  return (
-    <div style={styles.backdrop} onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <header style={styles.header}>
-          <h2 id="modal-title" style={styles.title}>{title}</h2>
-          <button style={styles.closeButton} onClick={onClose} aria-label="Close modal">&times;</button>
-        </header>
-        <div style={styles.body}>
-          {children}
-        </div>
+  return ReactDOM.createPortal(
+    <div
+      style={styles.overlay}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        style={styles.modal}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button onClick={onClose} style={styles.closeButton} aria-label="Close modal">&times;</button>
+        {children}
       </div>
-    </div>
+    </div>,
+    modalRoot
   );
 };
+
+const styles: {[key: string]: React.CSSProperties} = {
+    overlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1000,
+    },
+    modal: {
+        backgroundColor: 'white',
+        padding: '2rem',
+        borderRadius: '8px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+        maxWidth: '600px',
+        width: '90%',
+        position: 'relative',
+    },
+    closeButton: {
+        position: 'absolute',
+        top: '10px',
+        right: '15px',
+        background: 'none',
+        border: 'none',
+        fontSize: '2rem',
+        cursor: 'pointer',
+        color: '#aaa',
+    }
+}
+
+export default Modal;
